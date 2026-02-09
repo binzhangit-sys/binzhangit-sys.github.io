@@ -22,9 +22,10 @@
       line-height: 1.6;
     }
     main {
-      max-width: var(--maxw);
-      margin: 60px auto;
-      padding: 0 20px;
+      max-width: none;
+      width: 100vw;
+      margin: 0;
+      padding: 40px 60px;
     }
     h1, h2, h3 {
       font-weight: 500;
@@ -51,8 +52,8 @@
     /* two-column layout */
     .layout {
       display: grid;
-      grid-template-columns: var(--leftw) 1fr;
-      column-gap: 48px;
+      grid-template-columns: 1fr 2fr;
+      gap: 64px;
       align-items: start;
     }
     .profile img {
@@ -62,9 +63,16 @@
     }
 
     @media (max-width: 900px) {
+      main {
+        padding: 24px 20px;
+      }
       .layout {
         grid-template-columns: 1fr;
       }
+      .profile {
+        max-width: 260px;
+      }
+    }
       .profile {
         margin-bottom: 2em;
         max-width: 260px;

@@ -10,7 +10,8 @@
       --muted: #555;
       --bg: #fff;
       --link: #111;
-      --maxw: 720px;
+      --maxw: 960px;
+      --leftw: 300px;
     }
     * { box-sizing: border-box; }
     body {
@@ -41,29 +42,53 @@
       border-bottom: 1px solid #ddd;
     }
     a:hover { border-bottom-color: #000; }
-    header { margin-bottom: 2.5em; }
     footer {
       margin-top: 4em;
       font-size: 0.9em;
       color: var(--muted);
     }
+
+    /* two-column layout */
+    .layout {
+      display: grid;
+      grid-template-columns: var(--leftw) 1fr;
+      column-gap: 48px;
+      align-items: start;
+    }
+    .profile img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      .profile {
+        margin-bottom: 2em;
+        max-width: 260px;
+      }
+    }
   </style>
 </head>
 <body>
   <main>
-    <header style="display:flex;align-items:flex-start;gap:24px;">
-    <img src="images/profile.jpg" alt="Bin Zhang" style="max-width:none;height:auto;" />
-    <div>
-    <h1>Bin Zhang</h1>
-    <p class="muted">Ph.D. Candidate in Electronic and Information Engineering</p>
-    <p class="muted">Beihang University (BUAA), Beijing, China</p>
-    <p>
-      <a href="mailto:binzhang.it@gmail.com">binzhang.it@gmail.com</a> ·
-      <a href="https://scholar.google.com/citations?hl=zh-CN&user=HlHSYBIAAAAJ" target="_blank">Google Scholar</a> ·
-      <a href="#">GitHub</a>
-    </p>
-    </div>
-    </header>
+    <div class="layout">
+      <aside class="profile">
+        <img src="images/profile.jpg" alt="Bin Zhang" />
+      </aside>
+      <section>
+        <header>
+          <h1>Bin Zhang</h1>
+          <p class="muted">Ph.D. Candidate in Electronic and Information Engineering</p>
+          <p class="muted">Beihang University (BUAA), Beijing, China</p>
+          <p>
+            <a href="mailto:binzhang.it@gmail.com">binzhang.it@gmail.com</a> ·
+            <a href="https://scholar.google.com/citations?hl=zh-CN&user=HlHSYBIAAAAJ" target="_blank">Google Scholar</a> ·
+            <a href="#">GitHub</a>
+          </p>
+        </header>
 
     <section>
       <h2>Research Interests</h2>
@@ -79,6 +104,7 @@
         <li>
           <strong>Ph.D. in Information and Communication Engineering</strong>, BUAA<br />
           <span class="muted">Sep. 2020 – Present (Expected Jun. 2026)</span><br />
+          Advisor: Prof. Qin Huang
         </li>
         <li>
           <strong>B.Eng. in Communication Engineering</strong>, BUAA<br />
@@ -106,13 +132,25 @@
       <h3>Conference</h3>
       <ul>
         <li>
-          B. Zhang, Q. Huang,“Minimum Distance Decoding for Reed–Muller Codes Using Projection–Aggregation,” IEEE ITW, 2025.
+          B. Zhang, Q. Huang,<br />
+          “Minimum Distance Decoding for Reed–Muller Codes Using Projection–Aggregation,”<br />
+          <em>IEEE ITW</em>, 2025.
         </li>
         <li>
-          Q. Huang, B. Zhang, “Minimal Derivative Descendants of Cyclic Codes,” IEEE ISIT, 2023.
+          Q. Huang, B. Zhang,<br />
+          “Minimal Derivative Descendants of Cyclic Codes,”<br />
+          <em>IEEE ISIT</em>, 2023.
         </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <ul>
         <li>
-          B. Zhang, Q. Huang, “Derivative Descendants and Ascendants of Binary Cyclic Codes, and Derivative Decoding,” IEEE GC Workshops, 2022.
+          <strong>Research Intern</strong>, Huawei Technologies & BUAA<br />
+          <span class="muted">Mar. 2024 – Jul. 2025</span><br />
+          Coding for large-scale storage systems; LDPC-based architectures for mixed error mitigation.
         </li>
       </ul>
     </section>
